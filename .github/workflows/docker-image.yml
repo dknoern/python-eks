@@ -31,3 +31,19 @@ jobs:
       run: |
         docker build . --tag ghcr.io/dknoern/books:latest
         docker push ghcr.io/dknoern/books:latest
+
+  deploy:
+  
+    steps:
+    - name: Deploy Helm
+      uses: bitovi/github-actions-deploy-eks-helm@v1.2.8
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+        cluster-name: mycluster
+        config-files: .github/values/dev.yaml
+        chart-path: chart/
+        namespace: dev
+        values: key1=value1,key2=value2
+        name: release_name
