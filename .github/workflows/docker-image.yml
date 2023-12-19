@@ -46,6 +46,6 @@ jobs:
         cluster-name: gl2gh-eks-poc
         config-files: .github/values/dev.yaml
         chart-path: chart/
-        namespace: dev
+        namespace: default
         values: key1=value1,key2=value2
         name: release0
