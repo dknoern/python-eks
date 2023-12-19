@@ -33,7 +33,9 @@ jobs:
         docker push ghcr.io/dknoern/books:latest
 
   deploy:
-  
+
+    runs-on: ubuntu-latest
+
     steps:
     - name: Deploy Helm
       uses: bitovi/github-actions-deploy-eks-helm@v1.2.8
