@@ -48,4 +48,4 @@ jobs:
         chart-path: chart/
         namespace: dev
         values: key1=value1,key2=value2
-        name: release_name
+        name: release0
